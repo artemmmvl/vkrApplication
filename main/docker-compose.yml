@@ -1,0 +1,22 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 1111
+      POSTGRES_USER: postgres
+      POSTGRES_DB: rschir
+    ports:
+      - "5433:5432"
+  app:
+    build: onbuild
+    depends_on:
+      - postgres
+    ports:
+      - "8090:8090"
+
+
+
+
+

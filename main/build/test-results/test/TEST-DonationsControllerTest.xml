@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DonationsControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-05-13T12:40:10" hostname="MacBook-Air-Artem-4.local" time="0.592">
+  <properties/>
+  <testcase name="testGetByUser()" classname="DonationsControllerTest" time="0.169"/>
+  <testcase name="testDonate()" classname="DonationsControllerTest" time="0.126"/>
+  <testcase name="testGetAll()" classname="DonationsControllerTest" time="0.186"/>
+  <testcase name="testGetStatus()" classname="DonationsControllerTest" time="0.107"/>
+  <system-out><![CDATA[✅ getCompanyById executed successfully
+✅ donate executed successfully
+✅ getAll executed successfully
+✅ getStatus executed successfully
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

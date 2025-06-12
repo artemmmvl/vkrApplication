@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graylog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: graylog
+  template:
+    metadata:
+      labels:
+        app: graylog
+    spec:
+      containers:
+        - name: graylog
+          image: graylog/graylog:5.0
+          ports:
+            - containerPort: 9000
+          env:
+            - name: GRAYLOG_SERVER_JAVA_OPTS
+              value: "-Xms1g -Xmx1g"
+            - name: GRAYLOG_NODE_ID_FILE
+              value: "/usr/share/graylog/data/config/node-id"
+          volumeMounts:
+            - name: graylog-data
+              mountPath: /usr/share/graylog/data
+            - name: config-volume
+              mountPath: /usr/share/graylog/data/config/graylog.conf
+              subPath: graylog.conf
+      volumes:
+        - name: graylog-data
+          persistentVolumeClaim:
+            claimName: graylog-pvc
+        - name: config-volume
+          configMap:
+            name: graylog-config

@@ -1,0 +1,39 @@
+/* src/components/HowItWorks.css */
+.how-it-works {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: #444; /* более мягкий серый */
+}
+
+.how-it-works h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #1e2a46; /* глубокий синий, не слишком тёмный */
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+.step {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    max-width: 280px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+    color: #555; /* основной текст */
+}
+
+.step:hover {
+    transform: translateY(-4px);
+}
+
+.step h3 {
+    color: #0066cc; /* приятный синий */
+    margin-bottom: 10px;
+}

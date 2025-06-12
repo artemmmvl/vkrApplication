@@ -1,0 +1,26 @@
+
+B
+java:S1452!"&Remove usage of generic wildcard type.(õÊô58›é’¼2
+H
+java:S1452+"&Remove usage of generic wildcard type.(‘…ªİşÿÿÿÿ8Óìí§¼2
+C
+java:S14526"&Remove usage of generic wildcard type.(²ÂÈí8àìí§¼2
+C
+java:S1452="&Remove usage of generic wildcard type.(Ã®Ø¦8õìí§¼2
+B
+java:S1452D"&Remove usage of generic wildcard type.(¶«¾g8óƒ»¼¼2
+f
+java:S1128"DRemove this unused import 'io.swagger.v3.oas.annotations.Operation'.(şÏæšşÿÿÿÿ8ƒü£’¼2
+a
+java:S1128"DRemove this unused import 'io.swagger.v3.oas.annotations.Parameter'.(ñÕ¶€8µ¡£’¼2
+j
+java:S1128"HRemove this unused import 'io.swagger.v3.oas.annotations.media.Content'.(±øıÊüÿÿÿÿ8„ü£’¼2
+k
+java:S1128"NRemove this unused import 'io.swagger.v3.oas.annotations.media.ExampleObject'.(ÍÙà…8ßÏŸ’¼2
+i
+java:S1128"GRemove this unused import 'io.swagger.v3.oas.annotations.media.Schema'.(“è«øüÿÿÿÿ8„ü£’¼2
+r
+java:S1128	"PRemove this unused import 'io.swagger.v3.oas.annotations.responses.ApiResponse'.(ÑÁÔ¾ıÿÿÿÿ8„ü£’¼2
+n
+java:S1128
+"QRemove this unused import 'io.swagger.v3.oas.annotations.responses.ApiResponses'.(ıúáØ8„ü£’¼2

@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: krakend-config
+data:
+  krakend.json: |
+    {
+      "$schema": "https://www.krakend.io/schema/v3.json",
+      "version": 3,
+      "name": "My API Gateway",
+      "port": 8080,
+      "endpoints": [
+        {
+          "endpoint": "/api/s2/{*}",
+          "method": "GET",
+          "backend": [
+            {
+              "host": ["http://book-server.default.svc.cluster.local:8090"],
+              "url_pattern": "/api/s2/{*}"
+            }
+          ]
+        },
+        {
+          "endpoint": "/api/s3/{*}",
+          "method": "GET",
+          "backend": [
+            {
+              "host": ["http://order-server.default.svc.cluster.local:8082"],
+              "url_pattern": "/api/s3/{*}"
+            }
+          ]
+        },
+        {
+          "endpoint": "/{*}",
+          "method": "GET",
+          "backend": [
+            {
+              "host": ["http://auth-server.default.svc.cluster.local:8082"],
+              "url_pattern": "/{*}"
+            }
+          ]
+        }
+      ]
+    }

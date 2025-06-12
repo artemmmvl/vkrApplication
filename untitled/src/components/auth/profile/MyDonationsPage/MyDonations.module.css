@@ -1,0 +1,115 @@
+/*.pageWrapper {*/
+/*    display: flex;*/
+/*    padding: 32px;*/
+/*    gap: 24px;*/
+/*    font-family: "Segoe UI", sans-serif;*/
+/*    background-color: #f8f9fb;*/
+/*    min-height: 100vh;*/
+/*}*/
+
+.pageWrapper {
+    padding: 40px 32px;
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+.pageLayout{
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.content {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.content h2 {
+    margin-bottom: 24px;
+    color: #2c3e50;
+}
+
+.donationList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.image {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.cardBody p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.status {
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.status_pending {
+    color: #f59e0b;
+    font-weight: bold;
+}
+.emptyBlock {
+    width: 60%;
+    padding: 32px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.emptyText {
+    font-size: 17px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 18px;
+}
+
+.linkButton {
+    background-color:  #3182ce;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.linkButton:hover {
+    background-color: #3a74d1;
+}

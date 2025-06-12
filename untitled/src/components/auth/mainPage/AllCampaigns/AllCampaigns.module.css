@@ -1,0 +1,98 @@
+.campaigns {
+    padding: 32px;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+
+    width:calc(100% - 64px);
+    margin: 0 auto;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.campaignList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10%, 23.5%));
+    gap: 24px;
+    /*width: 100%;*/
+
+}
+
+.campaignCard {
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.campaignCard:hover {
+    transform: translateY(-5px);
+}
+
+.image {
+    width: 100%;
+    /*height: 160px;*/
+    /*object-fit: cover;*/
+    /*object-position: bottom;*/
+
+    aspect-ratio: 0.85;
+}
+
+.campaignInfo {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.campaignInfo h3 {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.campaignInfo p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.progressBar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.4s ease-in-out;
+}
+
+.dateRange {
+    font-size: 12px;
+    color: #888;
+}
+
+.detailsButton {
+    margin-top: 12px;
+    padding: 8px 14px;
+    background-color: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+}
+
+.detailsButton:hover {
+    background-color: #155fa0;
+}

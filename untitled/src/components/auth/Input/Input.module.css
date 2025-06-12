@@ -1,0 +1,66 @@
+.input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    background-color: #edf2f7;
+    font-size: 16px;
+    color: #2d3748;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    border-color: #3182ce;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px rgba(49, 130, 206, 0.3);
+}
+
+.input::placeholder {
+    color: #a0aec0;
+    font-size: 14px;
+}
+
+.input:disabled {
+    background-color: #e2e8f0;
+    color: #a0aec0;
+    cursor: not-allowed;
+}
+
+.inputError {
+    border-color: #e53e3e;
+    background-color: #fff5f5;
+}
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    background-color: #edf2f7;
+    font-size: 16px;
+    color: #2d3748;
+    outline: none;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* При фокусе */
+select:focus {
+    border-color: #3182ce;
+    background-color: #ffffff;
+    box-shadow: 0 0 6px rgba(49, 130, 206, 0.3);
+}
+
+/* Если disabled option */
+select option:disabled {
+    color: #a0aec0;
+}
+
+/* Плавное появление опций */
+select option {
+    padding: 10px;
+    font-size: 14px;
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://www.krakend.io/schema/v3.json",
+  "version": 3,
+  "name": "My API Gateway",
+  "port": 8080,
+  "timeout": "10000ms",
+  "endpoints": [
+    {
+      "endpoint": "/api/s2/{wildcard}",
+      "timeout": "30000ms",
+      "backend": [
+        {
+          "host": ["http://book-server.default.svc.cluster.local:8090"],
+          "url_pattern": "/api/s2/books/{wildcard}",
+          "timeout": "30000ms",
+          "extra_config": {
+            "github.com/devopsfaith/krakend/jsonschema": {
+              "type": "array"
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "endpoint": "/api/s3/{wildcard}",
+      "backend": [
+        {
+          "host": ["http://order-server.default.svc.cluster.local:8082"],
+          "url_pattern": "/api/s3/{wildcard}",
+          "timeout": "10000ms"
+        }
+      ]
+    },
+    {
+      "endpoint": "/{wildcard}",
+      "backend": [
+        {
+          "host": ["http://auth-server.default.svc.cluster.local:8082"],
+          "url_pattern": "/{wildcard}",
+          "timeout": "10000ms"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+.companyCard {
+    background-color: #f7fafc;
+    border: 1px solid #cbd5e0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: calc(100% - 40px);
+    /*max-width: 600px;*/
+    /*margin: 0 auto 20px;*/
+}
+ul{
+    padding-left: 0;
+}
+.companyRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.companyImage {
+    width: 60px;
+    height: auto;
+    max-height: 60px;
+    border-radius: 6px; /* немного скругляем, не круг */
+    object-fit: contain;
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 4px;
+}
+
+.companyName {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+}
+
+.companyButton {
+    align-self: flex-start;
+    padding: 8px 20px;
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.companyButton:hover {
+    background-color: #2b6cb0;
+}
+.companyRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.companyImage {
+    width: 60px;
+    max-height: 60px;
+    border-radius: 6px;
+    object-fit: contain;
+    background-color: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 4px;
+}
+
+.companyName {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.icon,
+.iconDelete {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: #2b6cb0;
+}
+
+.iconDelete:hover {
+    color: #e53e3e;
+}

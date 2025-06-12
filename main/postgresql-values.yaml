@@ -1,0 +1,10 @@
+global:
+  postgresql:
+    auth:
+      username: "postgres"
+      password: "password"
+      database: ipp6
+
+primary:
+  service:
+    port: 5432

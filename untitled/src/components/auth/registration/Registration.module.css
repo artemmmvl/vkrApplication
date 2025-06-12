@@ -1,0 +1,95 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #dadada;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.container_form {
+    width: 100%;
+    max-width: 600px; /* Увеличил ширину формы */
+    padding: 40px 30px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Лучше для длинных форм */
+    box-sizing: border-box;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    /*gap: 20px;*/
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #2d3748;
+    text-align: center;
+}
+
+textarea, input[type="file"], select, .css-13cymwt-control {
+    width: 100%;
+}
+
+/* Для кастомных select (SelectReact) */
+.css-13cymwt-control {
+    border: 1px solid #cbd5e0 !important;
+    border-radius: 8px !important;
+    background-color: #edf2f7 !important;
+    padding: 2px !important;
+    font-size: 14px;
+    color: #2d3748;
+    min-height: 40px !important;
+}
+
+/* Полоска прокрутки, если нужно */
+.wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+.wrapper::-webkit-scrollbar-thumb {
+    background-color: #b0b0b0;
+    border-radius: 4px;
+}
+.goToReg {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #4a5568; /* приглушённый тёмно-серый */
+    text-align: center;
+}
+
+.goToReg p {
+    margin: 0;
+}
+
+.hrefToRegistr {
+    color: #3182ce; /* синий акцент */
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.hrefToRegistr:hover {
+    color: #2b6cb0; /* затемнённый синий при наведении */
+    text-decoration: underline;
+}
+
+.container_form input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    background-color: #edf2f7;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #3182ce;
+}

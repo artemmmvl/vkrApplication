@@ -1,0 +1,43 @@
+plugins {
+    id 'org.springframework.boot' version '3.1.4' // Укажите вашу версию Spring Boot
+    id 'io.spring.dependency-management' version '1.1.3'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Основные зависимости Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // Spring Cloud Config Server
+    implementation 'org.springframework.cloud:spring-cloud-config-server'
+
+    // Для тестирования
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+// Укажите версию Spring Cloud
+ext {
+    set('springCloudVersion', "2022.0.4") // Проверьте последнюю доступную версию
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}

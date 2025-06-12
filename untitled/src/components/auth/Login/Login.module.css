@@ -1,0 +1,72 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #dadada;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container_form {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #2d3748;
+}
+
+.container_form input {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    background-color: #edf2f7;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #3182ce;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3182ce;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2b6cb0;
+}
+
+.goToReg p {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #2d3748;
+}
+
+.hrefToRegistr {
+    color: #3d89d0;
+    text-decoration: none;
+    font-weight: bold;
+}
+.goToReg span{
+    color: #0660b6;
+
+}

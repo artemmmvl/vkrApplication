@@ -1,0 +1,162 @@
+version: '3.8'
+
+services:
+  auth-service:
+    image: auth:latest
+    container_name: auth-service
+    restart: always
+    depends_on:
+      - auth-db
+      - auth-config
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://auth-db:5432/vkr_auth
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_CONFIG_IMPORT: optional:configserver:http://auth-config:8888
+      SERVER_PORT: 8081
+    ports:
+      - "8081:8081"
+    networks:
+      - backend
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8081/actuator/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  auth-db:
+    image: postgres:15
+    container_name: auth-db
+    restart: always
+    environment:
+      POSTGRES_DB: vkr_auth
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - backend
+    volumes:
+      - auth-db-data:/var/lib/postgresql/data
+  main-service:
+    image: main:latest
+    container_name: main-service
+    restart: always
+    depends_on:
+      - main-db
+      - auth-config
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://main-db:5432/vkr_main
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_CONFIG_IMPORT: optional:configserver:http://auth-config:8888
+      SERVER_PORT: 8082
+    ports:
+      - "8082:8082"
+    networks:
+      - backend
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8082/actuator/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  main-db:
+    image: postgres:15
+    container_name: main-db
+    restart: always
+    environment:
+      POSTGRES_DB: vkr_main
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    networks:
+      - backend
+    volumes:
+      - main-db-data:/var/lib/postgresql/data
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - backend
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - backend
+  frontend:
+    image: react-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+    restart: always
+  auth-config:
+    image: config:latest
+    container_name: auth-config
+    restart: always
+    environment:
+      GIT_URI: https://github.com/artemmmvl/vkr.git
+      SERVER_PORT: 8888
+    ports:
+      - "8888:8888"
+    networks:
+      - backend
+  mongo:
+    image: mongo:5.0
+    container_name: mongo
+    restart: always
+    networks:
+      - backend
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
+    container_name: elasticsearch
+    environment:
+      - http.host=0.0.0.0
+      - transport.host=localhost
+      - network.host=0.0.0.0
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    restart: always
+    networks:
+      - backend
+  graylog:
+    image: graylog/graylog:5.1
+    container_name: graylog
+    depends_on:
+      - mongo
+      - elasticsearch
+    environment:
+      - GRAYLOG_PASSWORD_SECRET=48b2407a0f51034b9f847b26f7620a1e
+      - GRAYLOG_ROOT_PASSWORD_SHA2=6711b5b808fb7e0dde6343dcf4b74585a6b8065fe9a66cfc2a271eed779198be
+      - GRAYLOG_HTTP_EXTERNAL_URI=http://localhost:9000/
+    entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
+    restart: always
+    ports:
+      - "9000:9000"       # web-интерфейс
+      - "12201:12201/udp" # для gelf-логирования
+    networks:
+      - backend
+networks:
+  backend:
+    driver: bridge
+
+
+volumes:
+  auth-db-data:
+  main-db-data:

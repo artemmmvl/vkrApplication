@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: graylog-config
+data:
+  graylog.conf: |
+    is_master = true
+    rest_listen_uri = http://0.0.0.0:9000/api/
+    web_listen_uri = http://0.0.0.0:9000/
+    elasticsearch_hosts = http://elasticsearch:9200
+    mongodb_uri = mongodb://mongodb:27017/graylog
+    message_journal_max_size = 2gb
+    password_secret = a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6
+    root_password_sha2 = 6f49ced9c4d90f3a743e8f9f7af1a20d236ac1b198f8992e9dc476082693ff68

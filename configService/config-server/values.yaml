@@ -1,0 +1,28 @@
+replicaCount: 1
+
+image:
+  repository: config-server
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8888
+
+resources: {}
+
+# ServiceAccount настройки
+serviceAccount:
+  create: false  # Отключить создание ServiceAccountkubectl delete pv postgresql-pv
+
+
+# Ingress настройки
+ingress:
+  enabled: false  # Отключить Ingress
+
+# Autoscaling настройки
+autoscaling:
+  enabled: false  # Отключить Autoscaling
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
